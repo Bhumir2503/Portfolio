@@ -51,7 +51,7 @@ export function Work() {
         {projects.map((project) => (
           <li
             key={project.name}
-            className="flex flex-col overflow-hidden rounded-2xl border border-border bg-card"
+            className="flex h-full flex-col overflow-hidden rounded-2xl border border-border bg-card"
           >
             <a href={project.href}>
               <img
@@ -67,7 +67,7 @@ export function Work() {
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
                 {project.subtitle}
               </p>
-              <div className="mt-5 flex items-center justify-between">
+              <div className="mt-auto flex items-center justify-between pt-5">
                 <a
                   href={project.github}
                   target="_blank"
