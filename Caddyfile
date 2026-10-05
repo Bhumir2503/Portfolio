@@ -1,0 +1,7 @@
+bhumir.com, www.bhumir.com {
+	encode gzip zstd
+
+	reverse_proxy web:3000 {
+		flush_interval -1
+	}
+}
