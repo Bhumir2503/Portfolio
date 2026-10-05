@@ -2,13 +2,20 @@ import { ArrowUpRight } from "lucide-react"
 
 import { Section } from "@/components/sections/section"
 
-const projects = [
+type Project = {
+  name: string
+  subtitle: string
+  href: string
+  github?: string
+  image: string
+}
+
+const projects: Project[] = [
   {
     name: "FormQuarry",
     subtitle:
       "FormQuarry is a form backend you point your form at. Submissions hit an endpoint, and FormQuarry sends the email to the people who need to receive it.",
     href: "/formquarry",
-    github: "https://github.com/Bhumir2503/FormQuarry",
     image: "/work/formquarry.svg",
   },
   {
@@ -16,7 +23,7 @@ const projects = [
     subtitle:
       "Journpath is an iOS-only itinerary planner for trips. You can store documents, find friends, and drop pins on the map for the places you want to visit. Invite other people to join the trip, and keep a checklist so nothing gets left behind.",
     href: "/journpath",
-    github: "https://github.com/Bhumir2503/Journpath",
+    github: "https://github.com/Bhumir2503/Journpath-ios",
     image: "/work/journpath.svg",
   },
 
@@ -68,18 +75,20 @@ export function Work() {
                 {project.subtitle}
               </p>
               <div className="mt-auto flex items-center justify-between pt-5">
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-sm font-medium underline-offset-4 hover:underline"
-                >
-                  GitHub
-                </a>
+                {project.github ? (
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-sm font-medium underline-offset-4 hover:underline"
+                  >
+                    GitHub
+                  </a>
+                ) : null}
                 <a
                   href={project.href}
                   aria-label={`Open ${project.name}`}
-                  className="flex size-9 items-center justify-center rounded-md border border-border bg-background"
+                  className="ml-auto flex size-9 items-center justify-center rounded-md border border-border bg-background"
                 >
                   <ArrowUpRight className="size-4" />
                 </a>
